@@ -1,4 +1,5 @@
-import * as actionTypes from '../actions';
+import * as actionTypes from '../actions/actionTypes';
+import { updateObject } from '../utility';
 
 export const initialStore = {
     counter: 0
@@ -7,10 +8,11 @@ export const initialStore = {
 export const counterReducer = (store = initialStore, action) => {
     switch(action.type) {
         case(actionTypes.INCREMENT):
-            return {
-                ...store,
-                counter: store.counter + 1
-            };
+            return updateObject(store, { counter: store.counter + 1});
+            // return {
+            //     ...store,
+            //     counter: store.counter + 1
+            // };
         case(actionTypes.DECREMENT):
             return {
                 ...store,
